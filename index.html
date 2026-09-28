@@ -3,84 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We're Getting Married!</title>
+    
+    <!-- ========================================== -->
+    <!-- OPEN GRAPH TAGS (For WhatsApp / iMessage)  -->
+    <!-- ========================================== -->
+    <meta property="og:title" content="Charan & Partner's Wedding">
+    <meta property="og:description" content="A confluence of Karnataka and Texas. Join us for our wedding celebration! Click here for details and to RSVP.">
+    <!-- IMPORTANT: Replace the link below with a direct link to an actual image (.jpg/.png) once your site is hosted -->
+    <meta property="og:image" content="https://your-github-username.github.io/wedding-invite/preview-image.jpg">
+    <!-- IMPORTANT: Replace with your actual GitHub Pages URL -->
+    <meta property="og:url" content="https://your-github-username.github.io/wedding-invite/">
+    <meta property="og:type" content="website">
+
+    <title>Charan & Partner | We're Getting Married!</title>
+    
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: 'Georgia', serif; /* Classic wedding font */
-            background-color: #fcfbf9; /* Soft off-white */
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+        /* CSS variables for theme colors (Karnataka & Texas inspired) */
+        :root {
+            --texas-sunset: #e07a5f; /* Terracotta/Sunset orange */
+            --karnataka-gold: #f2cc8f; /* Sand/Gold */
+            --deep-green: #3d405b; /* Deep slate/green */
+            --soft-bg: #f4f1de; /* Warm off-white */
         }
 
-        .container {
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--soft-bg);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section Container */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
             padding: 2rem;
-            max-width: 600px;
+        }
+
+        /* Animated Background Gradient */
+        .bg-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            background: linear-gradient(135deg, var(--texas-sunset) 0%, var(--karnataka-gold) 100%);
+            
+            /* TO ADD YOUR BACKGROUND IMAGE, UNCOMMENT THE LINES BELOW: */
+            /* background-image: url('your-background-art.jpg'); */
+            /* background-size: cover; */
+            /* opacity: 0.4; */ /* Adjust opacity so text is readable */
+        }
+
+        /* Floating Interactive Elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        .shape1 { width: 120px; height: 120px; top: 15%; left: 10%; animation-delay: 0s; }
+        .shape2 { width: 180px; height: 180px; top: 55%; right: 5%; animation-delay: -2s; background: rgba(224, 122, 95, 0.15); }
+        .shape3 { width: 90px; height: 90px; bottom: 10%; left: 25%; animation-delay: -4s; background: rgba(242, 204, 143, 0.3); }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* Main Content Container (Fades in on load) */
+        .content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
-            font-size: 3rem;
-            font-weight: normal;
-            margin-bottom: 0.5rem;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 0;
+            color: var(--deep-green);
             letter-spacing: 2px;
         }
 
-        h2 {
-            font-size: 1.5rem;
-            font-weight: normal;
-            color: #666;
-            margin-bottom: 2rem;
+        .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--texas-sunset);
+            margin-top: 15px;
             font-style: italic;
+            letter-spacing: 1px;
         }
 
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 3rem;
+        .description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin: 2.5rem 0;
+            color: #555;
         }
 
+        /* Interactive RSVP Button */
         .rsvp-button {
             display: inline-block;
-            background-color: #4a6c6f; /* Elegant muted teal/green */
+            background-color: var(--deep-green);
             color: white;
-            padding: 15px 40px;
+            padding: 18px 50px;
             text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 4px;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease;
+            font-size: 1.3rem;
+            border-radius: 30px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
 
         .rsvp-button:hover {
-            background-color: #3a5457;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background-color: #2b2d42;
         }
 
-        /* Optional: Add a subtle floral or decorative border */
-        .decoration {
-            font-size: 2rem;
-            color: #d4c4a8; /* Gold/sand color */
-            margin-bottom: 1rem;
+        /* Media Showcase Placeholders (For your artwork) */
+        .media-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .media-box {
+            width: 250px;
+            height: 350px;
+            background-color: rgba(255,255,255,0.6);
+            border: 2px dashed var(--texas-sunset);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-style: italic;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .media-box:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 10px 20px rgba(224, 122, 95, 0.2);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="decoration">❦</div>
-        <h1>Partner 1 & Partner 2</h1>
-        <h2>Are Tying the Knot!</h2>
+    <div class="hero">
+        <!-- Background gradient / image container -->
+        <div class="bg-container"></div>
         
-        <p>We are so excited to celebrate our special day with you.<br>
-        Please visit our full wedding website for all the details, accommodations, and to RSVP.</p>
+        <!-- Animated floating shapes -->
+        <div class="floating-element shape1"></div>
+        <div class="floating-element shape2"></div>
+        <div class="floating-element shape3"></div>
 
-        <!-- Replace the href below with your actual Zola link -->
-        <a href="https://www.zola.com/wedding/your-zola-url" class="rsvp-button" target="_blank" rel="noopener noreferrer">
-            Go to Wedding Website & RSVP
-        </a>
+        <div class="content">
+            <h1>Charan & Partner</h1>
+            <div class="subtitle">A Confluence of Karnataka and Texas</div>
+            
+            <p class="description">
+                We are thrilled to celebrate the beginning of our next chapter with you. 
+                Experience the beautiful blending of two worlds. 
+                Please join us for an unforgettable celebration.
+            </p>
+
+            <!-- IMPORTANT: Replace with your Zola URL -->
+            <a href="https://www.zola.com/wedding/your-zola-url" class="rsvp-button" target="_blank" rel="noopener noreferrer">
+                Enter & RSVP
+            </a>
+
+            <!-- Image/Video placeholders -->
+            <div class="media-showcase">
+                <!-- To add your image, change the style attribute to: style="background-image: url('your-karnataka-image.jpg');" -->
+                <div class="media-box" id="media1">
+                    [Drop Karnataka Artwork Here]
+                </div>
+                <!-- To add your image, change the style attribute to: style="background-image: url('your-texas-image.jpg');" -->
+                <div class="media-box" id="media2">
+                    [Drop Texas Artwork Here]
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
