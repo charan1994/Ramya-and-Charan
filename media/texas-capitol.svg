@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" class="w-24 h-24 md:w-40 md:h-40 text-txOrange mb-2 drop-shadow-lg" fill="#BF5700">
+                    <rect x="20" y="130" width="160" height="10"/>
+                    <rect x="30" y="110" width="140" height="20"/>
+                    <rect x="35" y="80" width="30" height="30"/>
+                    <rect x="135" y="80" width="30" height="30"/>
+                    <polygon points="30,80 68,80 50,60" />
+                    <polygon points="132,80 170,80 150,60" />
+                    <rect x="70" y="60" width="60" height="50"/>
+                    <rect x="80" y="45" width="40" height="15"/>
+                    <path d="M 80 45 C 80 10, 120 10, 120 45 Z" />
+                    <rect x="99" y="0" width="2" height="15"/>
+                    <polygon points="100,0 95,5 105,5" />
+                </svg>
