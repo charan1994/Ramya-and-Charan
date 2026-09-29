@@ -125,15 +125,13 @@
         /* Petal Shape & Variations */
         .petal {
             position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #FF9933; /* Saffron base */
-            border-radius: 150% 0 150% 0; /* Leaf/Petal shape */
+            width: 25px;
+            height: 25px;
             opacity: 0;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
         }
-        .petal.maroon { background: #73000A; }
-        .petal.gold { background: #D4AF37; width: 10px; height: 10px; }
+        .petal.large { width: 35px; height: 35px; }
+        .petal.small { width: 18px; height: 18px; }
 
         /* Hardcoding some petal paths for pure CSS animation */
         .petal:nth-child(1) { left: 10%; animation: fall 12s linear infinite, sway 4s ease-in-out infinite alternate; animation-delay: 0s; }
@@ -166,23 +164,24 @@
 
     <header class="relative min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-cream via-[#f5ecd8] to-[#fdebd3] overflow-hidden">
         
-        <!-- Pure CSS Falling Petals -->
+        <!-- Pure CSS Falling Bluebonnets and Lotuses -->
         <div class="petals-container">
-            <div class="petal maroon"></div>
-            <div class="petal gold"></div>
-            <div class="petal"></div>
-            <div class="petal maroon"></div>
-            <div class="petal"></div>
-            <div class="petal gold"></div>
-            <div class="petal maroon"></div>
-            <div class="petal"></div>
-            <div class="petal gold"></div>
-            <div class="petal maroon"></div>
-            <div class="petal"></div>
-            <div class="petal maroon"></div>
-            <div class="petal gold"></div>
-            <div class="petal"></div>
-            <div class="petal maroon"></div>
+            <!-- 15 alternating elements -->
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
         </div>
 
         <!-- Top decorative border -->
