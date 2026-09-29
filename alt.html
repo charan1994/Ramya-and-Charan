@@ -365,7 +365,7 @@
             </div>
             
             <!-- Scroll Indicator -->
-            <a href="#story" class="mt-16 animate-bounce text-inMaroon hover:text-txOrange transition-colors">
+            <a id="hero-scroll-arrow" href="#story" class="mt-16 animate-bounce text-inMaroon hover:text-txOrange transition-opacity duration-700 opacity-0 pointer-events-none">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
             </a>
         </div>
@@ -503,6 +503,7 @@
         const rightDoor = document.getElementById('right-door');
         const doorContainer = document.getElementById('door-container');
         const scrollPrompt = document.getElementById('scroll-prompt');
+        const heroArrow = document.getElementById('hero-scroll-arrow');
         
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
@@ -526,9 +527,15 @@
             if (percentage >= 1) {
                 doorContainer.style.pointerEvents = 'none';
                 doorContainer.style.opacity = '0';
+                if (heroArrow) {
+                    heroArrow.classList.remove('opacity-0', 'pointer-events-none');
+                }
             } else {
                 doorContainer.style.pointerEvents = 'auto';
                 doorContainer.style.opacity = '1';
+                if (heroArrow) {
+                    heroArrow.classList.add('opacity-0', 'pointer-events-none');
+                }
             }
         });
 
