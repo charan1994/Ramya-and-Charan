@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaskara Y'all | Shruti & Michael's Wedding</title>
+    
+    <!-- Open Graph Tags for WhatsApp / iMessage -->
+    <meta property="og:title" content="Shruti & Michael's Wedding">
+    <meta property="og:description" content="Namaskara Y'all! Join us as we blend the vibrant traditions of Karnataka with the rustic soul of Texas. Click to RSVP!">
+    <meta property="og:image" content="https://your-github-username.github.io/wedding-invite/preview-image.jpg">
+    <meta property="og:url" content="https://your-github-username.github.io/wedding-invite/">
+    <meta property="og:type" content="website">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        txOrange: '#BF5700',
+                        txBrown: '#5C3A21',
+                        inMaroon: '#73000A',
+                        inSaffron: '#FF9933',
+                        inGold: '#D4AF37',
+                        cream: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base & Scrollbar */
+        body {
+            background-color: #FDFBF7;
+            overflow-x: hidden;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 5px;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fall {
+            0% { top: -10%; opacity: 0; transform: rotate(0deg); }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 110%; opacity: 0; transform: rotate(360deg); }
+        }
+
+        @keyframes sway {
+            0% { transform: translateX(0px) rotate(0deg); }
+            50% { transform: translateX(30px) rotate(45deg); }
+            100% { transform: translateX(-30px) rotate(-45deg); }
+        }
+
+        @keyframes spin-slow {
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-slow-reverse {
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes float-delay {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(212,175,55,0.4)); }
+            50% { filter: drop-shadow(0 0 20px rgba(212,175,55,0.8)); }
+        }
+
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Utility Classes for Animations */
+        .animate-spin-slow { animation: spin-slow 24s linear infinite; transform-origin: center; }
+        .animate-spin-reverse { animation: spin-slow-reverse 30s linear infinite; transform-origin: center; }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delay { animation: float-delay 5s ease-in-out infinite 2s; }
+        .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
+        
+        /* Scroll Reveal Utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Falling Petals Container */
+        .petals-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Petal Shape & Variations */
+        .petal {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            opacity: 0;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+        }
+        .petal.large { width: 35px; height: 35px; }
+        .petal.small { width: 18px; height: 18px; }
+
+        /* Hardcoding some petal paths for pure CSS animation */
+        .petal:nth-child(1) { left: 10%; animation: fall 12s linear infinite, sway 4s ease-in-out infinite alternate; animation-delay: 0s; }
+        .petal:nth-child(2) { left: 20%; animation: fall 15s linear infinite, sway 5s ease-in-out infinite alternate; animation-delay: 2s; }
+        .petal:nth-child(3) { left: 30%; animation: fall 10s linear infinite, sway 3s ease-in-out infinite alternate; animation-delay: 4s; }
+        .petal:nth-child(4) { left: 40%; animation: fall 14s linear infinite, sway 4.5s ease-in-out infinite alternate; animation-delay: 1s; }
+        .petal:nth-child(5) { left: 50%; animation: fall 11s linear infinite, sway 3.5s ease-in-out infinite alternate; animation-delay: 5s; }
+        .petal:nth-child(6) { left: 60%; animation: fall 16s linear infinite, sway 5.5s ease-in-out infinite alternate; animation-delay: 3s; }
+        .petal:nth-child(7) { left: 70%; animation: fall 13s linear infinite, sway 4s ease-in-out infinite alternate; animation-delay: 0.5s; }
+        .petal:nth-child(8) { left: 80%; animation: fall 10s linear infinite, sway 3s ease-in-out infinite alternate; animation-delay: 6s; }
+        .petal:nth-child(9) { left: 90%; animation: fall 14s linear infinite, sway 4s ease-in-out infinite alternate; animation-delay: 2.5s; }
+        .petal:nth-child(10) { left: 15%; animation: fall 12s linear infinite, sway 5s ease-in-out infinite alternate; animation-delay: 7s; }
+        .petal:nth-child(11) { left: 35%; animation: fall 11s linear infinite, sway 3.5s ease-in-out infinite alternate; animation-delay: 8s; }
+        .petal:nth-child(12) { left: 55%; animation: fall 15s linear infinite, sway 4s ease-in-out infinite alternate; animation-delay: 1.5s; }
+        .petal:nth-child(13) { left: 75%; animation: fall 13s linear infinite, sway 5s ease-in-out infinite alternate; animation-delay: 4.5s; }
+        .petal:nth-child(14) { left: 85%; animation: fall 10s linear infinite, sway 3.2s ease-in-out infinite alternate; animation-delay: 9s; }
+        .petal:nth-child(15) { left: 5%; animation: fall 14s linear infinite, sway 4.1s ease-in-out infinite alternate; animation-delay: 3.5s; }
+
+        /* Custom Section Separators */
+        .wave-separator {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; overflow: hidden; line-height: 0;
+            transform: translateY(99%);
+            z-index: 10;
+        }
+        .wave-separator svg { display: block; width: calc(100% + 1.3px); height: 60px; }
+    </style>
+</head>
+<body class="font-sans text-txBrown antialiased">
+
+    <!-- Scroll Indicator Overlay (tells user to scroll to open) -->
+    <div id="scroll-prompt" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center text-white pointer-events-none transition-opacity duration-300 drop-shadow-md">
+        <span class="font-serif italic text-xl mb-2">Scroll to enter</span>
+        <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+    </div>
+
+    <!-- Saloon Doors Overlay -->
+    <div id="door-container" class="fixed inset-0 z-50 flex pointer-events-none transition-opacity duration-300" style="perspective: 1500px; transform-style: preserve-3d;">
+        
+        <!-- Left Door (Karnataka / Vidhana Soudha) -->
+        <div id="left-door" class="w-1/2 h-full bg-txBrown border-r-[6px] border-inGold relative flex flex-col justify-center items-center overflow-hidden shadow-[15px_0_30px_rgba(0,0,0,0.6)] pointer-events-auto transition-transform duration-75" style="transform-origin: left center;">
+            <div class="absolute inset-0 opacity-20" style="background: repeating-linear-gradient(90deg, transparent, transparent 30px, #000 30px, #000 32px);"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 right-4 w-4 h-24 bg-inGold rounded-full shadow-lg opacity-80"></div>
+            
+            <div class="relative z-10 flex flex-col items-center px-4 text-center">
+                <svg viewBox="0 0 200 150" class="w-32 h-32 md:w-56 md:h-56 text-inGold mb-4 drop-shadow-lg" fill="currentColor">
+                    <rect x="10" y="130" width="180" height="10"/>
+                    <rect x="20" y="120" width="160" height="10"/>
+                    <rect x="30" y="70" width="10" height="50"/>
+                    <rect x="50" y="70" width="10" height="50"/>
+                    <rect x="70" y="70" width="10" height="50"/>
+                    <rect x="120" y="70" width="10" height="50"/>
+                    <rect x="140" y="70" width="10" height="50"/>
+                    <rect x="160" y="70" width="10" height="50"/>
+                    <rect x="85" y="60" width="30" height="60"/>
+                    <rect x="25" y="65" width="150" height="5"/>
+                    <path d="M 25 65 Q 35 45 45 65 Z" />
+                    <path d="M 155 65 Q 165 45 175 65 Z" />
+                    <path d="M 75 60 Q 100 10 125 60 Z" />
+                    <circle cx="100" cy="8" r="4" />
+                </svg>
+                <h3 class="text-inGold font-serif text-xl md:text-3xl tracking-widest uppercase">Bengaluru</h3>
+            </div>
+        </div>
+
+        <!-- Right Door (Texas / Capitol) -->
+        <div id="right-door" class="w-1/2 h-full bg-txBrown border-l-[6px] border-txOrange relative flex flex-col justify-center items-center overflow-hidden shadow-[-15px_0_30px_rgba(0,0,0,0.6)] pointer-events-auto transition-transform duration-75" style="transform-origin: right center;">
+            <div class="absolute inset-0 opacity-20" style="background: repeating-linear-gradient(90deg, transparent, transparent 30px, #000 30px, #000 32px);"></div>
+            <div class="absolute top-1/2 -translate-y-1/2 left-4 w-4 h-24 bg-txOrange rounded-full shadow-lg opacity-80"></div>
+            
+            <div class="relative z-10 flex flex-col items-center px-4 text-center">
+                <svg viewBox="0 0 200 150" class="w-32 h-32 md:w-56 md:h-56 text-txOrange mb-4 drop-shadow-lg" fill="currentColor">
+                    <rect x="20" y="130" width="160" height="10"/>
+                    <rect x="30" y="110" width="140" height="20"/>
+                    <rect x="35" y="80" width="30" height="30"/>
+                    <rect x="135" y="80" width="30" height="30"/>
+                    <polygon points="30,80 68,80 50,60" />
+                    <polygon points="132,80 170,80 150,60" />
+                    <rect x="70" y="60" width="60" height="50"/>
+                    <rect x="80" y="45" width="40" height="15"/>
+                    <path d="M 80 45 C 80 10, 120 10, 120 45 Z" />
+                    <rect x="99" y="0" width="2" height="15"/>
+                    <polygon points="100,0 95,5 105,5" />
+                </svg>
+                <h3 class="text-txOrange font-serif text-xl md:text-3xl tracking-widest uppercase">Austin</h3>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <!-- Spacer wrapper to allow scrolling while hero stays sticky -->
+    <div style="height: 150vh;">
+    <header class="sticky top-0 h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-cream via-[#f5ecd8] to-[#fdebd3] overflow-hidden">
+        
+        <!-- Pure CSS Falling Bluebonnets and Lotuses -->
+        <div class="petals-container">
+            <!-- 15 alternating elements -->
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g><g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g><g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g><circle cx="50" cy="50" r="12" fill="#FFD54F"/></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g><g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g><g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g><circle cx="50" cy="50" r="12" fill="#FFD54F"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g><g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g><g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g><circle cx="50" cy="50" r="12" fill="#FFD54F"/></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g><g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g><g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g><circle cx="50" cy="50" r="12" fill="#FFD54F"/></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g><g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g><g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g><circle cx="50" cy="50" r="12" fill="#FFD54F"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g><g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g><g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g><circle cx="50" cy="50" r="12" fill="#FFD54F"/></svg></div>
+            <div class="petal large"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+            <div class="petal small"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,80 C30,80 10,60 10,50 C10,40 30,50 50,20 C70,50 90,40 90,50 C90,60 70,80 50,80 Z" fill="#FF9933" opacity="0.9"/><path d="M50,75 C35,75 20,60 20,50 C20,45 35,50 50,30 C65,50 80,45 80,50 C80,60 65,75 50,75 Z" fill="#73000A" opacity="0.8"/><path d="M50,70 C40,70 30,60 30,50 C30,45 40,50 50,35 C60,50 70,45 70,50 C70,60 60,70 50,70 Z" fill="#D4AF37" /></svg></div>
+            <div class="petal"><svg viewBox="0 0 100 100" class="w-full h-full"><path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/><circle cx="50" cy="20" r="4" fill="#FDFBF7" /><circle cx="45" cy="30" r="6" fill="#1C3F60" /><circle cx="55" cy="32" r="5" fill="#2E5C8A" /><circle cx="42" cy="42" r="7" fill="#1C3F60" /><circle cx="58" cy="44" r="6" fill="#2E5C8A" /><circle cx="44" cy="55" r="7" fill="#1C3F60" /><circle cx="56" cy="58" r="8" fill="#2E5C8A" /><circle cx="48" cy="68" r="6" fill="#1C3F60" /><circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/><circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/></svg></div>
+        </div>
+
+        <!-- Top decorative border -->
+        <div class="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-inMaroon via-inGold to-txOrange"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto flex flex-col items-center">
+            
+            <!-- Animated Fusion SVG (Mandala + Lone Star + Flowers) -->
+            <div class="w-64 h-64 md:w-80 md:h-80 relative mb-8">
+                <svg viewBox="0 0 300 300" class="w-full h-full drop-shadow-2xl overflow-visible">
+                    
+                    <!-- Outer Rotating Mandala (Karnataka) -->
+                    <g class="animate-spin-slow">
+                        <circle cx="150" cy="150" r="120" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="6, 12" />
+                        <circle cx="150" cy="150" r="110" fill="none" stroke="#73000A" stroke-width="4" stroke-dasharray="20, 10, 5, 10" />
+                        <circle cx="150" cy="150" r="95" fill="none" stroke="#FF9933" stroke-width="1" />
+                        <!-- Mandala Petals -->
+                        <path d="M 150 30 C 160 50, 170 50, 150 70 C 130 50, 140 50, 150 30 Z" fill="#D4AF37" />
+                        <path d="M 150 270 C 160 250, 170 250, 150 230 C 130 250, 140 250, 150 270 Z" fill="#D4AF37" />
+                        <path d="M 30 150 C 50 140, 50 130, 70 150 C 50 170, 50 160, 30 150 Z" fill="#D4AF37" />
+                        <path d="M 270 150 C 250 140, 250 130, 230 150 C 250 170, 250 160, 270 150 Z" fill="#D4AF37" />
+                        <!-- Diagonal Petals -->
+                        <path d="M 65 65 C 80 75, 90 65, 90 90 C 75 80, 65 90, 65 65 Z" fill="#73000A" />
+                        <path d="M 235 235 C 220 225, 210 235, 210 210 C 225 220, 235 210, 235 235 Z" fill="#73000A" />
+                        <path d="M 235 65 C 220 75, 210 65, 210 90 C 225 80, 235 90, 235 65 Z" fill="#73000A" />
+                        <path d="M 65 235 C 80 225, 90 235, 90 210 C 75 220, 65 210, 65 235 Z" fill="#73000A" />
+                    </g>
+                    
+                    <!-- Inner Rotating Ring -->
+                    <g class="animate-spin-reverse">
+                        <circle cx="150" cy="150" r="75" fill="none" stroke="#BF5700" stroke-width="3" stroke-dasharray="15, 15" />
+                        <circle cx="150" cy="150" r="65" fill="#FDFBF7" stroke="#D4AF37" stroke-width="2" />
+                    </g>
+
+                    <!-- Central Pulsing Lone Star (Texas) -->
+                    <g class="animate-pulse-glow">
+                        <polygon points="150,95 163,130 200,130 170,152 182,190 150,168 118,190 130,152 100,130 137,130" fill="#BF5700" />
+                        <!-- Star Inner detail -->
+                        <polygon points="150,110 157,135 180,135 162,150 168,175 150,160 132,175 138,150 120,135 143,135" fill="#FF9933" opacity="0.8"/>
+                    </g>
+                </svg>
+
+                <!-- Floating Elements positioned absolutely over the main SVG -->
+                <!-- Floating Marigold (Karnataka) -->
+                <svg viewBox="0 0 100 100" class="absolute -top-6 -left-6 w-16 h-16 animate-float">
+                    <g fill="#E65C00"><circle cx="50" cy="20" r="16"/><circle cx="50" cy="80" r="16"/><circle cx="20" cy="50" r="16"/><circle cx="80" cy="50" r="16"/><circle cx="29" cy="29" r="16"/><circle cx="71" cy="71" r="16"/><circle cx="29" cy="71" r="16"/><circle cx="71" cy="29" r="16"/></g>
+                    <g fill="#FF9933"><circle cx="50" cy="30" r="14"/><circle cx="50" cy="70" r="14"/><circle cx="30" cy="50" r="14"/><circle cx="70" cy="50" r="14"/><circle cx="36" cy="36" r="14"/><circle cx="64" cy="64" r="14"/><circle cx="36" cy="64" r="14"/><circle cx="64" cy="36" r="14"/></g>
+                    <g fill="#FFC107"><circle cx="50" cy="40" r="10"/><circle cx="50" cy="60" r="10"/><circle cx="40" cy="50" r="10"/><circle cx="60" cy="50" r="10"/></g>
+                    <circle cx="50" cy="50" r="12" fill="#FFD54F"/>
+                </svg>
+
+                <!-- Floating Bluebonnet (Texas) -->
+                <svg viewBox="0 0 100 100" class="absolute -bottom-4 -right-4 w-16 h-16 animate-float-delay">
+                    <!-- Stem -->
+                    <path d="M50,90 Q45,60 50,20" stroke="#4A5D23" stroke-width="4" fill="none"/>
+                    <!-- Blooms (Abstract Bluebonnet) -->
+                    <circle cx="50" cy="20" r="4" fill="#FDFBF7" />
+                    <circle cx="45" cy="30" r="6" fill="#1C3F60" />
+                    <circle cx="55" cy="32" r="5" fill="#2E5C8A" />
+                    <circle cx="42" cy="42" r="7" fill="#1C3F60" />
+                    <circle cx="58" cy="44" r="6" fill="#2E5C8A" />
+                    <circle cx="44" cy="55" r="7" fill="#1C3F60" />
+                    <circle cx="56" cy="58" r="8" fill="#2E5C8A" />
+                    <circle cx="48" cy="68" r="6" fill="#1C3F60" />
+                    <circle cx="50" cy="28" r="3" fill="#FDFBF7" opacity="0.8"/>
+                    <circle cx="48" cy="40" r="2" fill="#FDFBF7" opacity="0.8"/>
+                </svg>
+            </div>
+
+            <!-- Typography -->
+            <h2 class="font-sans tracking-widest uppercase text-sm md:text-md text-txOrange font-bold mb-4 drop-shadow-sm">Save the Date</h2>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-inMaroon mb-6 leading-tight drop-shadow-md">
+                Namaskara <span class="text-txOrange italic">Y'all!</span>
+            </h1>
+            <p class="font-sans text-lg md:text-2xl text-txBrown max-w-2xl font-light">
+                Join us as we blend the vibrant traditions of Karnataka with the rustic soul of Texas.
+            </p>
+            
+            <div class="mt-10 flex items-center space-x-4 text-inGold">
+                <span class="w-12 h-[1px] bg-inGold"></span>
+                <span class="font-serif italic text-xl">October 24, 2026</span>
+                <span class="w-12 h-[1px] bg-inGold"></span>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <a href="#story" class="mt-16 animate-bounce text-inMaroon hover:text-txOrange transition-colors">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+
+        <!-- Decorative Bottom SVG Wave -->
+        <div class="wave-separator text-[#73000A]">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,192.51,97.7,236.43,85.24,279.13,71.21,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </header>
+    </div>
+
+    <section id="story" class="py-24 bg-inMaroon text-cream relative">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl text-inGold mb-4">Two Worlds, One Heart</h2>
+                <div class="w-24 h-1 bg-txOrange mx-auto rounded"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Karnataka Side -->
+                <div class="text-center md:text-right reveal space-y-6">
+                    <div class="flex justify-center md:justify-end mb-6">
+                        <!-- Mysore Palace inspired simple SVG -->
+                        <svg class="w-24 h-24 text-inSaffron" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M50 10 L55 30 L65 30 L60 45 L75 55 L75 90 L25 90 L25 55 L40 45 L35 30 L45 30 Z" />
+                            <circle cx="50" cy="45" r="5" fill="#FDFBF7"/>
+                            <rect x="35" y="70" width="10" height="20" fill="#FDFBF7"/>
+                            <rect x="55" y="70" width="10" height="20" fill="#FDFBF7"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-3xl text-inSaffron">From the Gardens of Bengaluru</h3>
+                    <p class="font-sans text-lg font-light leading-relaxed text-[#f5ecd8]">
+                        Shruti's roots run deep in the vibrant culture of Karnataka. Surrounded by the scent of jasmine, the rhythmic beats of traditional drums, and the rich heritage of silk and gold.
+                    </p>
+                </div>
+
+                <!-- Texas Side -->
+                <div class="text-center md:text-left reveal space-y-6">
+                    <div class="flex justify-center md:justify-start mb-6">
+                        <!-- Cowboy Boot inspired simple SVG -->
+                        <svg class="w-24 h-24 text-txOrange" viewBox="0 0 100 100" fill="currentColor">
+                            <path d="M30 10 L45 10 L45 50 C45 60, 55 60, 60 70 L75 80 C80 85, 80 90, 75 90 L25 90 C20 90, 20 85, 25 80 L30 70 Z" />
+                            <!-- Spur detail -->
+                            <circle cx="20" cy="85" r="4" fill="#D4AF37"/>
+                            <line x1="20" y1="85" x2="28" y2="85" stroke="#D4AF37" stroke-width="2"/>
+                            <!-- Pattern -->
+                            <path d="M35 20 Q40 30 35 40" stroke="#FDFBF7" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-3xl text-txOrange">To the Heart of Hill Country</h3>
+                    <p class="font-sans text-lg font-light leading-relaxed text-[#f5ecd8]">
+                        Michael was raised under the wide, starry skies of Texas. A world of barbecue, country music, rugged landscapes, and warm Southern hospitality. 
+                    </p>
+                </div>
+                
+            </div>
+            
+            <div class="mt-16 text-center reveal">
+                <p class="font-serif italic text-xl text-inGold max-w-3xl mx-auto">
+                    "Fate brought a techie from India and an architect from Austin together at a local coffee shop. Now, we're blending our lives and our families in a celebration of love, spice, and everything nice."
+                </p>
+            </div>
+        </div>
+
+        <!-- Decorative Bottom SVG Wave -->
+        <div class="wave-separator text-[#f5ecd8]">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,115.3,192.51,97.7,236.43,85.24,279.13,71.21,321.39,56.44Z"></path>
+            </svg>
+        </div>
+    </section>
+
+    
+    <section id="rsvp" class="py-24 bg-cream relative overflow-hidden">
+        
+        <!-- Decorative Background Mandalas -->
+        <svg class="absolute -top-32 -left-32 w-96 h-96 text-[#f5ecd8] opacity-50 animate-spin-slow" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M50 0 L55 45 L100 50 L55 55 L50 100 L45 55 L0 50 L45 45 Z" />
+            <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="4, 4"/>
+        </svg>
+        <svg class="absolute -bottom-32 -right-32 w-96 h-96 text-[#f5ecd8] opacity-50 animate-spin-reverse" viewBox="0 0 100 100" fill="currentColor">
+            <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" />
+            <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="1" />
+        </svg>
+
+        <div class="max-w-3xl mx-auto px-6 relative z-10">
+            <div class="bg-white rounded-3xl shadow-2xl p-10 md:p-16 border border-[#f5ecd8] reveal">
+                
+                <div class="text-center mb-10">
+                    <h2 class="font-serif text-4xl md:text-5xl text-txBrown mb-4">Kindly RSVP</h2>
+                    <p class="font-sans text-txOrange font-semibold">Please respond by September 1st, 2026</p>
+                </div>
+
+                <!-- Form hooked up to standard static site action -->
+                <div class="text-center pt-4">
+                    <p class="font-sans text-lg text-txBrown mb-8">
+                        Please click the button below to visit our official wedding website where you can find accommodation details and RSVP.
+                    </p>
+                    <a href="https://www.zola.com/wedding/your-zola-url" target="_blank" rel="noopener noreferrer" class="inline-block bg-inMaroon hover:bg-txOrange text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-serif text-xl tracking-wide">
+                        Go to RSVP Website
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-txBrown text-cream py-10 text-center relative border-t-4 border-inGold">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 class="font-serif text-3xl mb-4">Shruti & Michael</h3>
+            <p class="font-sans font-light text-inSaffron mb-6">Austin, Texas • Oct 24, 2026</p>
+            
+            <div class="flex justify-center space-x-4 mb-6">
+                <!-- Simple divider -->
+                <span class="w-2 h-2 rounded-full bg-txOrange"></span>
+                <span class="w-2 h-2 rounded-full bg-inGold"></span>
+                <span class="w-2 h-2 rounded-full bg-inMaroon"></span>
+            </div>
+
+            <p class="font-sans text-sm opacity-70">
+                Created with love in Texas and Karnataka.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer to trigger CSS animations on scroll
+        
+        // Saloon Doors Scroll Logic
+        const leftDoor = document.getElementById('left-door');
+        const rightDoor = document.getElementById('right-door');
+        const doorContainer = document.getElementById('door-container');
+        const scrollPrompt = document.getElementById('scroll-prompt');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            // The doors open fully over the first 40% of the viewport height being scrolled
+            const maxScroll = window.innerHeight * 0.4; 
+            
+            let percentage = Math.min(scrollY / maxScroll, 1);
+            let angle = percentage * 105; // Open slightly past 90 degrees for a deep open feel
+            
+            if (leftDoor && rightDoor) {
+                leftDoor.style.transform = `rotateY(${angle}deg)`;
+                rightDoor.style.transform = `rotateY(${-angle}deg)`;
+            }
+            
+            if (percentage > 0.1) {
+                scrollPrompt.style.opacity = '0';
+            } else {
+                scrollPrompt.style.opacity = '1';
+            }
+
+            if (percentage >= 1) {
+                doorContainer.style.pointerEvents = 'none';
+                doorContainer.style.opacity = '0';
+            } else {
+                doorContainer.style.pointerEvents = 'auto';
+                doorContainer.style.opacity = '1';
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal");
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("active");
+                        observer.unobserve(entry.target); // Run once
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.15, // Trigger when 15% of element is visible
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            reveals.forEach(reveal => {
+                revealObserver.observe(reveal);
+            });
+        });
+    </script>
+</body>
+</html>
