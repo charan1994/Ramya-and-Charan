@@ -171,7 +171,7 @@
 <body class="font-sans text-navy antialiased">
 
     <!-- Scroll Indicator Overlay (tells user to scroll to open) -->
-    <div id="scroll-prompt" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center text-white pointer-events-none transition-opacity duration-300 drop-shadow-md">
+    <div id="scroll-prompt" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center text-white cursor-pointer pointer-events-auto transition-opacity duration-300 drop-shadow-md door-trigger">
         <span class="font-serif italic text-xl mb-2">Scroll to enter</span>
         <img src="media/scroll-prompt-arrow.svg" class="w-8 h-8 animate-bounce" alt="Scroll down" />
     </div>
@@ -194,7 +194,7 @@
             
             <div class="relative z-10 flex flex-col items-center text-center">
                 
-                <img src="media/vidhana_soudha.png" alt="Vidhana Soudha" class="w-24 h-24 md:w-48 md:h-48 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transition-transform hover:scale-110" />
+                <img src="media/vidhana_soudha.png" alt="Vidhana Soudha" class="w-24 h-24 md:w-48 md:h-48 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transition-transform hover:scale-110 cursor-pointer door-trigger" />
                 <h3 class="text-slate font-serif text-sm md:text-2xl tracking-widest uppercase">Karnataka</h3>
             </div>
 
@@ -221,7 +221,7 @@
             
             <div class="relative z-10 flex flex-col items-center text-center">
                 
-                <img src="media/texas_capitol.png" alt="Texas Capitol" class="w-24 h-24 md:w-48 md:h-48 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transition-transform hover:scale-110" />
+                <img src="media/texas_capitol.png" alt="Texas Capitol" class="w-24 h-24 md:w-48 md:h-48 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transition-transform hover:scale-110 cursor-pointer door-trigger" />
                 <h3 class="text-blue font-serif text-sm md:text-2xl tracking-widest uppercase">Texas</h3>
             </div>
 
@@ -411,6 +411,17 @@
         const scrollPrompt = document.getElementById('scroll-prompt');
         const heroArrow = document.getElementById('hero-scroll-arrow');
         
+        
+        // Click to open doors
+        document.querySelectorAll('.door-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                window.scrollTo({
+                    top: window.innerHeight * 0.45,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY;
             // The doors open fully over the first 40% of the viewport height being scrolled
