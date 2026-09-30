@@ -23,14 +23,18 @@
         tailwind.config = {
             theme: {
                 extend: {
-                                                            colors: {
-                        navy: '#1B2D5D',
-                        blue: '#234994',
-                        slate: '#C5D1DF',
-                        forest: '#4F7942',
-                        olive: '#739C52',
-                        cream: '#F3F2EB',
-                        sage: '#EAF0DD',
+                    colors: {
+                        navy: '#3E2723', /* Deep Espresso */
+                        blue: '#3B597B', /* Peacock Blue */
+                        'blue-light': '#AFCDEF', /* Pastel Blue for dark backgrounds */
+                        slate: '#9A612C', /* Accessible Antique Gold */
+                        'slate-light': '#F8BF8A', /* Pastel Gold for dark backgrounds */
+                        forest: '#405B45', /* Agave Green */
+                        olive: '#53765A', /* Accessible Sage Green */
+                        'olive-light': '#AFD2B6', /* Pastel Sage for dark backgrounds */
+                        cream: '#FCF2E3', /* Base Cream */
+                        sage: '#F3DFC6', /* Tan/Sand */
+                        terracotta: '#B74C3F', /* Accessible Brick Red */
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -44,7 +48,7 @@
     <style>
         /* Base & Scrollbar */
         body {
-            background-color: #FDFBF7;
+            background-color: #FCF2E3;
             overflow-x: hidden;
         }
         
@@ -52,10 +56,10 @@
             width: 10px;
         }
         ::-webkit-scrollbar-track {
-            background: #FDFBF7;
+            background: #FCF2E3;
         }
         ::-webkit-scrollbar-thumb {
-            background: #D4AF37;
+            background: #9A612C;
             border-radius: 5px;
         }
 
@@ -180,57 +184,37 @@
     <div id="door-container" class="fixed inset-0 z-50 flex items-center justify-between pointer-events-none transition-opacity duration-300" style="perspective: 1500px; transform-style: preserve-3d;">
         
         <!-- Left Door (Karnataka) -->
-        <div id="left-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-[#5C3A21] relative flex flex-col items-center justify-between py-6 md:py-12 shadow-[20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#3a2010] border-l-0" style="transform-origin: left center; border-radius: 0 100% 100% 0 / 0 15% 15% 0;">
+        <div id="left-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-[#5C3A21] relative flex flex-col items-center justify-center py-6 md:py-12 shadow-[20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#3a2010] border-l-0" style="transform-origin: left center; border-radius: 0 100% 100% 0 / 0 15% 15% 0; background: repeating-linear-gradient(90deg, #5C3A21, #5C3A21 40px, #3a2010 40px, #3a2010 44px);">
             
-            <!-- Louver Panel (Top) -->
-            <div class="w-2/3 h-[25%] mt-4 border-[6px] border-[#3a2010] shadow-inner overflow-hidden flex flex-col justify-evenly bg-[#50301a]">
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-            </div>
-            
-            <div class="relative z-10 flex flex-col items-center text-center">
-                
-                <img src="media/vidhana_soudha.png" alt="Vidhana Soudha" class="w-24 h-24 md:w-48 md:h-48 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transition-transform hover:scale-110 cursor-pointer door-trigger" />
-                <h3 class="text-slate font-serif text-sm md:text-2xl tracking-widest uppercase">Karnataka</h3>
+            <!-- Horizontal Braces -->
+            <div class="absolute top-[15%] w-full h-8 md:h-12 bg-[#4a2c16] border-y-4 border-[#3a2010] shadow-md z-0"></div>
+            <div class="absolute bottom-[15%] w-full h-8 md:h-12 bg-[#4a2c16] border-y-4 border-[#3a2010] shadow-md z-0"></div>
+
+            <div class="relative z-10 flex flex-col items-center text-center px-4">
+                <img src="media/vidhana_soudha.png" alt="Vidhana Soudha" class="w-40 h-40 md:w-80 md:h-80 object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-6 transition-transform hover:scale-110 cursor-pointer door-trigger" />
+                <h3 class="text-slate-light font-serif text-lg md:text-3xl tracking-widest uppercase">Karnataka</h3>
             </div>
 
-            <!-- Solid Panel (Bottom) -->
-            <div class="w-2/3 h-[20%] mb-4 border-[6px] border-[#3a2010] shadow-inner bg-[#4a2c16]"></div>
-            
             <!-- Hinges -->
-            <div class="absolute top-[15%] left-0 w-2 h-12 bg-black shadow-md rounded-r-md"></div>
-            <div class="absolute bottom-[15%] left-0 w-2 h-12 bg-black shadow-md rounded-r-md"></div>
+            <div class="absolute top-[15%] left-0 w-2 h-12 bg-black shadow-md rounded-r-md z-20"></div>
+            <div class="absolute bottom-[15%] left-0 w-2 h-12 bg-black shadow-md rounded-r-md z-20"></div>
         </div>
 
         <!-- Right Door (Texas) -->
-        <div id="right-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-[#5C3A21] relative flex flex-col items-center justify-between py-6 md:py-12 shadow-[-20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#3a2010] border-r-0" style="transform-origin: right center; border-radius: 100% 0 0 100% / 15% 0 0 15%;">
+        <div id="right-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-[#5C3A21] relative flex flex-col items-center justify-center py-6 md:py-12 shadow-[-20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#3a2010] border-r-0" style="transform-origin: right center; border-radius: 100% 0 0 100% / 15% 0 0 15%; background: repeating-linear-gradient(90deg, #5C3A21, #5C3A21 40px, #3a2010 40px, #3a2010 44px);">
             
-            <!-- Louver Panel (Top) -->
-            <div class="w-2/3 h-[25%] mt-4 border-[6px] border-[#3a2010] shadow-inner overflow-hidden flex flex-col justify-evenly bg-[#50301a]">
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-            </div>
-            
-            <div class="relative z-10 flex flex-col items-center text-center">
-                
-                <img src="media/texas_capitol.png" alt="Texas Capitol" class="w-24 h-24 md:w-48 md:h-48 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-4 transition-transform hover:scale-110 cursor-pointer door-trigger" />
-                <h3 class="text-blue font-serif text-sm md:text-2xl tracking-widest uppercase">Texas</h3>
-            </div>
+            <!-- Horizontal Braces -->
+            <div class="absolute top-[15%] w-full h-8 md:h-12 bg-[#4a2c16] border-y-4 border-[#3a2010] shadow-md z-0"></div>
+            <div class="absolute bottom-[15%] w-full h-8 md:h-12 bg-[#4a2c16] border-y-4 border-[#3a2010] shadow-md z-0"></div>
 
-            <!-- Solid Panel (Bottom) -->
-            <div class="w-2/3 h-[20%] mb-4 border-[6px] border-[#3a2010] shadow-inner bg-[#4a2c16]"></div>
+            <div class="relative z-10 flex flex-col items-center text-center px-4">
+                <img src="media/texas_capitol.png" alt="Texas Capitol" class="w-40 h-40 md:w-80 md:h-80 object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] mb-6 transition-transform hover:scale-110 cursor-pointer door-trigger" />
+                <h3 class="text-blue-light font-serif text-lg md:text-3xl tracking-widest uppercase">Texas</h3>
+            </div>
 
             <!-- Hinges -->
-            <div class="absolute top-[15%] right-0 w-2 h-12 bg-black shadow-md rounded-l-md"></div>
-            <div class="absolute bottom-[15%] right-0 w-2 h-12 bg-black shadow-md rounded-l-md"></div>
+            <div class="absolute top-[15%] right-0 w-2 h-12 bg-black shadow-md rounded-l-md z-20"></div>
+            <div class="absolute bottom-[15%] right-0 w-2 h-12 bg-black shadow-md rounded-l-md z-20"></div>
         </div>
 
     </div>
@@ -307,8 +291,8 @@
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-16 reveal">
-                <h2 class="font-serif text-4xl md:text-5xl text-slate mb-4">Two Worlds, One Heart</h2>
-                <div class="w-24 h-1 bg-blue mx-auto rounded"></div>
+                <h2 class="font-serif text-4xl md:text-5xl text-slate-light mb-4">Two Worlds, One Heart</h2>
+                <div class="w-24 h-1 bg-blue-light mx-auto rounded"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -319,7 +303,7 @@
                         <!-- Shruti Photo Placeholder -->
                         <img src="media/shruti-photo.jpg" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-[6px] border-slate shadow-[0_10px_20px_rgba(0,0,0,0.2)] bg-black/10" alt="Shruti" />
                     </div>
-                    <h3 class="font-serif text-3xl text-olive">From the Gardens of Karnataka</h3>
+                    <h3 class="font-serif text-3xl text-olive-light">From the Gardens of Karnataka</h3>
                     <p class="font-sans text-lg font-light leading-relaxed text-[#f5ecd8]">
                         Shruti's roots run deep in the vibrant culture of Karnataka. Surrounded by the scent of jasmine, the rhythmic beats of traditional drums, and the rich heritage of silk and gold.
                     </p>
@@ -331,7 +315,7 @@
                         <!-- Michael Photo Placeholder -->
                         <img src="media/michael-photo.jpg" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-[6px] border-blue shadow-[0_10px_20px_rgba(0,0,0,0.2)] bg-black/10" alt="Michael" />
                     </div>
-                    <h3 class="font-serif text-3xl text-blue">To the Heart of Hill Country</h3>
+                    <h3 class="font-serif text-3xl text-blue-light">To the Heart of Hill Country</h3>
                     <p class="font-sans text-lg font-light leading-relaxed text-[#f5ecd8]">
                         Michael was raised under the wide, starry skies of Texas. A world of barbecue, country music, rugged landscapes, and warm Southern hospitality. 
                     </p>
@@ -340,7 +324,7 @@
             </div>
             
             <div class="mt-16 text-center reveal">
-                <p class="font-serif italic text-xl text-slate max-w-3xl mx-auto">
+                <p class="font-serif italic text-xl text-slate-light max-w-3xl mx-auto">
                     "Fate brought a techie from India and an architect from Texas together at a local coffee shop. Now, we're blending our lives and our families in a celebration of love, spice, and everything nice."
                 </p>
             </div>
