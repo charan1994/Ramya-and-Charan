@@ -23,13 +23,14 @@
         tailwind.config = {
             theme: {
                 extend: {
-                                        colors: {
-                        txOrange: '#B65D46', // Terracotta from the Capitol drawing
-                        txBrown: '#3C312B',  // Deep espresso text
-                        inMaroon: '#8A3E40', // Muted brick red from floral garlands
-                        inSaffron: '#C79A4A',// Ochre/Mustard from the umbrellas
-                        inGold: '#BA9B6B',   // Antique gold from the borders
-                        cream: '#F2E8D5',    // Antique parchment background
+                                                            colors: {
+                        navy: '#1B2D5D',
+                        blue: '#234994',
+                        slate: '#C5D1DF',
+                        forest: '#4F7942',
+                        olive: '#739C52',
+                        cream: '#F3F2EB',
+                        sage: '#EAF0DD',
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -167,7 +168,7 @@
         .wave-separator svg { display: block; width: calc(100% + 1.3px); height: 60px; }
     </style>
 </head>
-<body class="font-sans text-txBrown antialiased">
+<body class="font-sans text-navy antialiased">
 
     <!-- Scroll Indicator Overlay (tells user to scroll to open) -->
     <div id="scroll-prompt" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] flex flex-col items-center text-white pointer-events-none transition-opacity duration-300 drop-shadow-md">
@@ -179,26 +180,26 @@
     <div id="door-container" class="fixed inset-0 z-50 flex items-center justify-between pointer-events-none transition-opacity duration-300" style="perspective: 1500px; transform-style: preserve-3d;">
         
         <!-- Left Door (Karnataka) -->
-        <div id="left-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-[#5C3A21] relative flex flex-col items-center justify-between py-6 md:py-12 shadow-[20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#3a2010] border-l-0" style="transform-origin: left center; border-radius: 0 100% 100% 0 / 0 15% 15% 0;">
+        <div id="left-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-navy relative flex flex-col items-center justify-between py-6 md:py-12 shadow-[20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#0f1a36] border-l-0" style="transform-origin: left center; border-radius: 0 100% 100% 0 / 0 15% 15% 0;">
             
             <!-- Louver Panel (Top) -->
-            <div class="w-2/3 h-[25%] mt-4 border-[6px] border-[#3a2010] shadow-inner overflow-hidden flex flex-col justify-evenly bg-[#50301a]">
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
+            <div class="w-2/3 h-[25%] mt-4 border-[6px] border-[#0f1a36] shadow-inner overflow-hidden flex flex-col justify-evenly bg-[#16244a]">
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
             </div>
             
             <div class="relative z-10 flex flex-col items-center text-center">
                 
-                <img src="media/karnataka-door.jpg" alt="Karnataka Venue" class="w-24 h-24 md:w-48 md:h-48 object-cover rounded-sm border-4 border-[#3a2010] shadow-lg mb-4 bg-black/40" />
-                <h3 class="text-inGold font-serif text-sm md:text-2xl tracking-widest uppercase">Karnataka</h3>
+                <img src="media/karnataka-door.jpg" alt="Karnataka Venue" class="w-24 h-24 md:w-48 md:h-48 object-cover rounded-sm border-4 border-[#0f1a36] shadow-lg mb-4 bg-black/40" />
+                <h3 class="text-slate font-serif text-sm md:text-2xl tracking-widest uppercase">Karnataka</h3>
             </div>
 
             <!-- Solid Panel (Bottom) -->
-            <div class="w-2/3 h-[20%] mb-4 border-[6px] border-[#3a2010] shadow-inner bg-[#4a2c16]"></div>
+            <div class="w-2/3 h-[20%] mb-4 border-[6px] border-[#0f1a36] shadow-inner bg-[#121e3d]"></div>
             
             <!-- Hinges -->
             <div class="absolute top-[15%] left-0 w-2 h-12 bg-black shadow-md rounded-r-md"></div>
@@ -206,26 +207,26 @@
         </div>
 
         <!-- Right Door (Texas) -->
-        <div id="right-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-[#5C3A21] relative flex flex-col items-center justify-between py-6 md:py-12 shadow-[-20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#3a2010] border-r-0" style="transform-origin: right center; border-radius: 100% 0 0 100% / 15% 0 0 15%;">
+        <div id="right-door" class="w-[50vw] h-[75vh] md:h-[90vh] bg-navy relative flex flex-col items-center justify-between py-6 md:py-12 shadow-[-20px_15px_40px_rgba(0,0,0,0.7)] pointer-events-auto border-[6px] border-[#0f1a36] border-r-0" style="transform-origin: right center; border-radius: 100% 0 0 100% / 15% 0 0 15%;">
             
             <!-- Louver Panel (Top) -->
-            <div class="w-2/3 h-[25%] mt-4 border-[6px] border-[#3a2010] shadow-inner overflow-hidden flex flex-col justify-evenly bg-[#50301a]">
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
-                <div class="w-full h-1 md:h-2 bg-[#3a2010] shadow-sm transform -skew-y-2"></div>
+            <div class="w-2/3 h-[25%] mt-4 border-[6px] border-[#0f1a36] shadow-inner overflow-hidden flex flex-col justify-evenly bg-[#16244a]">
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
+                <div class="w-full h-1 md:h-2 bg-[#0f1a36] shadow-sm transform -skew-y-2"></div>
             </div>
             
             <div class="relative z-10 flex flex-col items-center text-center">
                 
-                <img src="media/texas-door.jpg" alt="Texas Venue" class="w-24 h-24 md:w-48 md:h-48 object-cover rounded-sm border-4 border-[#3a2010] shadow-lg mb-4 bg-black/40" />
-                <h3 class="text-txOrange font-serif text-sm md:text-2xl tracking-widest uppercase">Texas</h3>
+                <img src="media/texas-door.jpg" alt="Texas Venue" class="w-24 h-24 md:w-48 md:h-48 object-cover rounded-sm border-4 border-[#0f1a36] shadow-lg mb-4 bg-black/40" />
+                <h3 class="text-blue font-serif text-sm md:text-2xl tracking-widest uppercase">Texas</h3>
             </div>
 
             <!-- Solid Panel (Bottom) -->
-            <div class="w-2/3 h-[20%] mb-4 border-[6px] border-[#3a2010] shadow-inner bg-[#4a2c16]"></div>
+            <div class="w-2/3 h-[20%] mb-4 border-[6px] border-[#0f1a36] shadow-inner bg-[#121e3d]"></div>
 
             <!-- Hinges -->
             <div class="absolute top-[15%] right-0 w-2 h-12 bg-black shadow-md rounded-l-md"></div>
@@ -235,7 +236,7 @@
     </div>
     <!-- Spacer wrapper to allow scrolling while hero stays sticky -->
     <div style="height: 150vh;">
-    <header class="sticky top-0 h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-cream via-[#E8D9C0] to-[#DDC9AB] overflow-hidden">
+    <header class="sticky top-0 h-screen w-full flex flex-col items-center justify-center bg-gradient-to-br from-cream via-sage to-slate overflow-hidden">
         
         <!-- Pure CSS Falling Bluebonnets and Lotuses -->
         <div class="petals-container">
@@ -273,22 +274,22 @@
             </div>
 
             <!-- Typography -->
-            <h2 class="font-sans tracking-widest uppercase text-sm md:text-md text-txOrange font-bold mb-4 drop-shadow-sm">Save the Date</h2>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-inMaroon mb-6 leading-tight drop-shadow-md">
-                Namaskara <span class="text-txOrange italic">Y'all!</span>
+            <h2 class="font-sans tracking-widest uppercase text-sm md:text-md text-blue font-bold mb-4 drop-shadow-sm">Save the Date</h2>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-forest mb-6 leading-tight drop-shadow-md">
+                Namaskara <span class="text-blue italic">Y'all!</span>
             </h1>
-            <p class="font-sans text-lg md:text-2xl text-txBrown max-w-2xl font-light">
+            <p class="font-sans text-lg md:text-2xl text-navy max-w-2xl font-light">
                 Join us as we blend the vibrant traditions of Karnataka with the rustic soul of Texas.
             </p>
             
-            <div class="mt-10 flex items-center space-x-4 text-inGold">
-                <span class="w-12 h-[1px] bg-inGold"></span>
+            <div class="mt-10 flex items-center space-x-4 text-slate">
+                <span class="w-12 h-[1px] bg-slate"></span>
                 <span class="font-serif italic text-xl">October 24, 2026</span>
-                <span class="w-12 h-[1px] bg-inGold"></span>
+                <span class="w-12 h-[1px] bg-slate"></span>
             </div>
             
             <!-- Scroll Indicator -->
-            <a id="hero-scroll-arrow" href="#story" class="mt-16 animate-bounce text-inMaroon hover:text-txOrange transition-opacity duration-700 opacity-0 pointer-events-none">
+            <a id="hero-scroll-arrow" href="#story" class="mt-16 animate-bounce text-forest hover:text-blue transition-opacity duration-700 opacity-0 pointer-events-none">
                 <img src="media/hero-scroll-arrow.svg" class="w-8 h-8" alt="Scroll" />
             </a>
         </div>
@@ -302,12 +303,12 @@
     </header>
     </div>
 
-    <section id="story" class="py-24 bg-inMaroon text-cream relative">
+    <section id="story" class="py-24 bg-forest text-cream relative">
         <div class="max-w-6xl mx-auto px-6">
             
             <div class="text-center mb-16 reveal">
-                <h2 class="font-serif text-4xl md:text-5xl text-inGold mb-4">Two Worlds, One Heart</h2>
-                <div class="w-24 h-1 bg-txOrange mx-auto rounded"></div>
+                <h2 class="font-serif text-4xl md:text-5xl text-slate mb-4">Two Worlds, One Heart</h2>
+                <div class="w-24 h-1 bg-blue mx-auto rounded"></div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -316,9 +317,9 @@
                 <div class="text-center md:text-right reveal space-y-6">
                     <div class="flex justify-center md:justify-end mb-6">
                         <!-- Shruti Photo Placeholder -->
-                        <img src="media/shruti-photo.jpg" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-[6px] border-[#BA9B6B] shadow-[0_10px_20px_rgba(0,0,0,0.2)] bg-black/10" alt="Shruti" />
+                        <img src="media/shruti-photo.jpg" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-[6px] border-slate shadow-[0_10px_20px_rgba(0,0,0,0.2)] bg-black/10" alt="Shruti" />
                     </div>
-                    <h3 class="font-serif text-3xl text-inSaffron">From the Gardens of Karnataka</h3>
+                    <h3 class="font-serif text-3xl text-olive">From the Gardens of Karnataka</h3>
                     <p class="font-sans text-lg font-light leading-relaxed text-[#f5ecd8]">
                         Shruti's roots run deep in the vibrant culture of Karnataka. Surrounded by the scent of jasmine, the rhythmic beats of traditional drums, and the rich heritage of silk and gold.
                     </p>
@@ -328,9 +329,9 @@
                 <div class="text-center md:text-left reveal space-y-6">
                     <div class="flex justify-center md:justify-start mb-6">
                         <!-- Michael Photo Placeholder -->
-                        <img src="media/michael-photo.jpg" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-[6px] border-[#B65D46] shadow-[0_10px_20px_rgba(0,0,0,0.2)] bg-black/10" alt="Michael" />
+                        <img src="media/michael-photo.jpg" class="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full border-[6px] border-blue shadow-[0_10px_20px_rgba(0,0,0,0.2)] bg-black/10" alt="Michael" />
                     </div>
-                    <h3 class="font-serif text-3xl text-txOrange">To the Heart of Hill Country</h3>
+                    <h3 class="font-serif text-3xl text-blue">To the Heart of Hill Country</h3>
                     <p class="font-sans text-lg font-light leading-relaxed text-[#f5ecd8]">
                         Michael was raised under the wide, starry skies of Texas. A world of barbecue, country music, rugged landscapes, and warm Southern hospitality. 
                     </p>
@@ -339,7 +340,7 @@
             </div>
             
             <div class="mt-16 text-center reveal">
-                <p class="font-serif italic text-xl text-inGold max-w-3xl mx-auto">
+                <p class="font-serif italic text-xl text-slate max-w-3xl mx-auto">
                     "Fate brought a techie from India and an architect from Texas together at a local coffee shop. Now, we're blending our lives and our families in a celebration of love, spice, and everything nice."
                 </p>
             </div>
@@ -364,16 +365,16 @@
             <div class="bg-white rounded-3xl shadow-2xl p-10 md:p-16 border border-[#f5ecd8] reveal">
                 
                 <div class="text-center mb-10">
-                    <h2 class="font-serif text-4xl md:text-5xl text-txBrown mb-4">Kindly RSVP</h2>
-                    <p class="font-sans text-txOrange font-semibold">Please respond by September 1st, 2026</p>
+                    <h2 class="font-serif text-4xl md:text-5xl text-navy mb-4">Kindly RSVP</h2>
+                    <p class="font-sans text-blue font-semibold">Please respond by September 1st, 2026</p>
                 </div>
 
                 <!-- Form hooked up to standard static site action -->
                 <div class="text-center pt-4">
-                    <p class="font-sans text-lg text-txBrown mb-8">
+                    <p class="font-sans text-lg text-navy mb-8">
                         Please click the button below to visit our official wedding website where you can find accommodation details and RSVP.
                     </p>
-                    <a href="https://www.zola.com/wedding/your-zola-url" target="_blank" rel="noopener noreferrer" class="inline-block bg-inMaroon hover:bg-txOrange text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-serif text-xl tracking-wide">
+                    <a href="https://www.zola.com/wedding/your-zola-url" target="_blank" rel="noopener noreferrer" class="inline-block bg-forest hover:bg-blue text-white font-bold py-4 px-10 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-serif text-xl tracking-wide">
                         Go to RSVP Website
                     </a>
                 </div>
@@ -382,16 +383,16 @@
         </div>
     </section>
 
-    <footer class="bg-txBrown text-cream py-10 text-center relative border-t-4 border-inGold">
+    <footer class="bg-navy text-cream py-10 text-center relative border-t-4 border-slate">
         <div class="max-w-4xl mx-auto px-6">
             <h3 class="font-serif text-3xl mb-4">Shruti & Michael</h3>
-            <p class="font-sans font-light text-inSaffron mb-6">Austin, Texas • Oct 24, 2026</p>
+            <p class="font-sans font-light text-olive mb-6">Austin, Texas • Oct 24, 2026</p>
             
             <div class="flex justify-center space-x-4 mb-6">
                 <!-- Simple divider -->
-                <span class="w-2 h-2 rounded-full bg-txOrange"></span>
-                <span class="w-2 h-2 rounded-full bg-inGold"></span>
-                <span class="w-2 h-2 rounded-full bg-inMaroon"></span>
+                <span class="w-2 h-2 rounded-full bg-blue"></span>
+                <span class="w-2 h-2 rounded-full bg-slate"></span>
+                <span class="w-2 h-2 rounded-full bg-forest"></span>
             </div>
 
             <p class="font-sans text-sm opacity-70">
